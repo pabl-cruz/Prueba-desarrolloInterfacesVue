@@ -7,16 +7,16 @@ export default {
     HeaderComponent,
     PokemonComponent
   },
-  //fetch lista de pokemons al iniciar app
+  //fetch lista de pokemones al iniciar app
   async mounted() {
     try {
       const url = 'https://pokeapi.co/api/v2/pokemon?limit=20'
       const { data } = await axios.get(url)
       const pokemon = data.results
-      const detailedPokeData = pokemon.map(async (obj, index) => {
-        const pokemonDetail = await axios.get(obj.url)
+      const detailedPokeData = pokemon.map(async (pokemon, index) => {
+        const pokemonDetail = await axios.get(pokemon.url)
         return {
-          name: obj.name,
+          name: pokemon.name,
           pokeId: index,
           details: pokemonDetail.data
         }
@@ -32,7 +32,8 @@ export default {
     return {
       pokeData: ''
     }
-  }
+  },
+  computed: {}
 }
 </script>
 
