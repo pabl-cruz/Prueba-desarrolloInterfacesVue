@@ -1,6 +1,7 @@
 <script>
 export default {
   name: 'HeaderComponent',
+  //se establece propiedad pokeCounter para mostrar contador en template
   props: {
     pokeCounter: {
       type: Number,

@@ -1,6 +1,7 @@
 <script>
 export default {
   name: 'PokemonComponent',
+  //propiedad para aceptar objeto pokemon
   props: {
     pokemon: {
       type: Object,
@@ -8,14 +9,17 @@ export default {
     }
   },
   data() {
+    //variables de estado, pokemonInput es valor subido desde input, showpokemon y shake son valores booleanos para establecer clases de estilo condicionales
     return {
       pokemonInput: '',
       showPokemon: false,
       shake: false
     }
   },
+  //establecer emits para asegurar correcta comunicacion entre metodos de componentes padre e hijo
   emits: ['addDiscoveredPokemon', 'add-discoveredPokemon'],
   methods: {
+    //metodo de enviar datos
     sendInputData() {
       if (this.pokemonInput.toLowerCase() === this.pokemon.name) {
         this.showPokemon = true
@@ -25,8 +29,11 @@ export default {
         })
       } else {
         this.showPokemon = false
+        //se refresca valor de shake una vez se ejecute
         this.shake = false
+        //nextTick hara vaciar todos los datos atados en el siguiente tick y reestablecera la clase shake y su animacion
         this.$nextTick(() => {
+          //tomando como referencia el desplazamiento de altura de shakeelement, refresca a true valor de shake
           this.$refs.shakeElement.offsetHeight
           this.shake = true
         })
@@ -37,7 +44,9 @@ export default {
 </script>
 
 <template>
+  <!--toma de referencia este elemento para ejecutar codigo asociado a $ref-->
   <figure ref="shakeElement">
+    <!--se establecen clases condicionales de ocultar pokemon, mostrar y temblar-->
     <img
       :src="pokemon.details.sprites.front_default"
       :alt="pokemon.name"

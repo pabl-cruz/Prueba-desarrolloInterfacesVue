@@ -1,34 +1,41 @@
 # prueba-desarrolloInterfacesVue
 
-This template should help get you started developing with Vue 3 in Vite.
+Prueba evaluada de Bootcamp Desafío Latam para desarrollo de interfaces en Vue.Js, mediante una aplicación de descubridor de pokemones usando la PokeAPI.
 
-## Recommended IDE Setup
+## Lenguajes y frameworks utilizados
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- HTML 5
+- CSS 3
+- JavaScript
+- Vue.js 3
 
-## Customize configuration
+## API Utilizada
+
+- [PokeAPI](https://pokeapi.co/)
+
+## Personalizar configuración
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Configurar e instalar proyecto
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compilar y recargar en caliente para desarrollo
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Compilar y minificar para producción
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint con [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
