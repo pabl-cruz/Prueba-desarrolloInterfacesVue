@@ -10,18 +10,26 @@ export default {
   data() {
     return {
       pokemonInput: '',
-      showPokemon: false
+      showPokemon: false,
+      shake: false
     }
   },
+  emits: ['addDiscoveredPokemon', 'add-discoveredPokemon'],
   methods: {
     sendInputData() {
       if (this.pokemonInput.toLowerCase() === this.pokemon.name) {
-        console.log(this.pokemonInput)
-        console.log('lo hiciste ;)')
         this.showPokemon = true
+        this.shake = false
+        this.$emit('add-discoveredPokemon', {
+          pokemonInput: this.pokemonInput
+        })
       } else {
-        console.log('error, intenta de nuevo')
         this.showPokemon = false
+        this.shake = false
+        this.$nextTick(() => {
+          this.$refs.shakeElement.offsetHeight
+          this.shake = true
+        })
       }
     }
   }
@@ -29,13 +37,14 @@ export default {
 </script>
 
 <template>
-  <figure>
+  <figure ref="shakeElement">
     <img
       :src="pokemon.details.sprites.front_default"
       :alt="pokemon.name"
       :class="{
-        hidden: showPokemon === false,
-        show: showPokemon === true
+        hidden: !showPokemon,
+        show: showPokemon,
+        shake: shake
       }"
     />
   </figure>
@@ -83,6 +92,35 @@ h4 {
   }
   to {
     filter: blur(none) grayscale(0%);
+  }
+}
+
+.shake {
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
   }
 }
 </style>

@@ -30,18 +30,28 @@ export default {
   },
   data() {
     return {
-      pokeData: ''
+      pokeData: '',
+      pokemons: []
     }
   },
-  computed: {}
+  methods: {
+    addDiscoveredPokemon(pkmn) {
+      this.pokemons.push(pkmn)
+    }
+  },
+  computed: {
+    pokemonAmount() {
+      return this.pokemons.length
+    }
+  }
 }
 </script>
 
 <template>
-  <HeaderComponent />
+  <HeaderComponent :pokeCounter="pokemonAmount" />
   <div class="row">
     <div v-for="(pokemon, id) in pokeData" :key="id" class="pokemon">
-      <PokemonComponent :pokemon="pokemon" />
+      <PokemonComponent :pokemon="pokemon" @add-discoveredPokemon="addDiscoveredPokemon" />
     </div>
   </div>
 </template>

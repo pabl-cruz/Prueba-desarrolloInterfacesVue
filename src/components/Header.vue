@@ -1,9 +1,10 @@
 <script>
 export default {
   name: 'HeaderComponent',
-  data() {
-    return {
-      pokeCounter: null
+  props: {
+    pokeCounter: {
+      type: Number,
+      required: true
     }
   }
 }
@@ -15,7 +16,9 @@ export default {
   <h1>¿Quién es ese Pokémon?</h1>
   <div>
     <p>Introduce el nombre del Pokemon bajo su silueta para revelarlo si aciertas.</p>
-    <h2>Pokemones descubiertos: {{ pokeCounter }}</h2>
+    <h2>
+      Pokemones descubiertos: <span>{{ pokeCounter }}</span>
+    </h2>
   </div>
 </template>
 
@@ -32,5 +35,8 @@ figure {
 h1,
 h2 {
   font-weight: bold;
+}
+span {
+  color: sandybrown;
 }
 </style>
