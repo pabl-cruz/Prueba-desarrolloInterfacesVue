@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <figure><img src="@/assets/pokemon.png" alt="Pokemon Logo" /></figure>
+  <figure><img src="/pokemon-logo.svg" alt="Pokemon Logo" /></figure>
   <br />
   <h1>¿Quién es ese Pokémon?</h1>
   <div>
@@ -24,6 +24,26 @@ export default {
 </template>
 
 <style scoped>
+h1 {
+  font-size: 40px;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 28px;
+  margin: 2rem auto;
+  background-color: #2ad2eb;
+  color: #fff;
+  width: max-content;
+  padding: 2rem;
+  border-radius: 80px;
+  text-shadow: 1px 1px 2px #00000096;
+}
+
 h1,
 p,
 h2 {
@@ -38,6 +58,11 @@ h2 {
   font-weight: bold;
 }
 span {
-  color: sandybrown;
+  color: #9f09a7;
+  margin-left: 0.5rem;
+}
+
+img {
+  width: 33%;
 }
 </style>

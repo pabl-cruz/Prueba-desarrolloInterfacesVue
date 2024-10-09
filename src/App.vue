@@ -32,7 +32,7 @@ export default {
   data() {
     //variables de estado, pokeData es arreglo con datos de los 20 pokemones, pokemons es arreglo de pokemones descubiertos
     return {
-      pokeData: '',
+      pokeData: [],
       pokemons: []
     }
   },
@@ -67,6 +67,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 4rem 0;
 }
 
 .pokemon {
