@@ -2,6 +2,8 @@
 
 Prueba evaluada de Bootcamp Desafío Latam para desarrollo de interfaces en Vue.Js, mediante una aplicación de descubridor de pokemones usando la PokeAPI.
 
+Puedes probar en el navegador en este [enlace](https://examen-pokeapi.web.app/)
+
 ## Lenguajes y frameworks utilizados
 
 - HTML 5
